@@ -4,6 +4,8 @@ python:
 cache: pip
 install:
   - pip install awscli
+script:
+  - echo 'We dont have to do anything yet'
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
