@@ -1,6 +1,6 @@
 # Learning static website hosting on AWS S3
 
-This repo gets automatically deployed to S3 via CodePipeline.
+This repo gets automatically deployed to S3 via Travis CI.
 
 ## How to
 
@@ -26,4 +26,5 @@ This repo gets automatically deployed to S3 via CodePipeline.
 	]
 }
 ``` 
-3. Create a new pipeline on CodePipeline
+3. Create a `.travis.yml`file in your repository:
+
