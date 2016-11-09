@@ -12,5 +12,5 @@ deploy:
   secret_access_key: $AWS_SECRET_KEY
   bucket: "learning-static-hosting"
   skip_cleanup: true
-  region: eu-west-1
+  region: eu-central-1
   local_dir: www
