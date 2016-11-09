@@ -6,10 +6,9 @@ This repo gets automatically deployed to S3 via Travis CI.
 
 1. Create a repository with your website.
 2. Create a new bucket on S3
-    - On the properties tab, click on _Static Website Hosting_ and check _Enable Website Hosting_.
-    Fill in the index and error page.
-    - On the properties tab, click on _Permissions_ and _Edit bucket policy_. 
-    Fill in the following police but replace YOUR_BUCKET_NAME with your bucket name
+    - To enable static website hosting open the properties tab, click on _Static Website Hosting_ and check _Enable Website 	Hosting_. Fill in the index and error page.
+    - You also have to set the `read` access to public, otherwise no one could access the bucket although static hosting is 	enabled. To set the correct access click on _Permissions_ and _Edit bucket policy_ and fill in the following police but
+    replace YOUR_BUCKET_NAME with your bucket name
    
 ```
 {
