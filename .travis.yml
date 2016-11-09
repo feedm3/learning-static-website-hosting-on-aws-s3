@@ -1,4 +1,9 @@
-language: node_js
+language: python
+python:
+  - "3.5"
+cache: pip
+install:
+  - pip install awscli
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
