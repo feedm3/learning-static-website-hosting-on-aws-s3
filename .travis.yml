@@ -4,8 +4,6 @@ python:
 cache: pip
 env:
   global:
-    - AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY
-    - AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_KEY
     - AWS_DEFAULT_REGION=eu-central-1
 install:
   - pip install awscli
