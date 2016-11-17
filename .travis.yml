@@ -2,17 +2,11 @@ language: python
 python:
   - "3.5"
 cache: pip
+env:
+  - AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY
+  - AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_KEY
+  - AWS_DEFAULT_REGION=eu-central-1
 install:
   - pip install awscli
 script:
-  - echo 'We dont have to do anything yet'
-deploy:
-  on:
-    branch: master
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  bucket: "learning-static-hosting"
-  skip_cleanup: true
-  region: eu-central-1
-  local_dir: www
+  - aws s3 sync www s3://learning-static-hosting --delete
