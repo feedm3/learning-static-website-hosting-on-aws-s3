@@ -7,9 +7,9 @@ env:
   global:
     - AWS_DEFAULT_REGION=eu-central-1
 install:
-  - sudo apt-get install python2.7
-  - curl -O https://bootstrap.pypa.io/get-pip.py
-  - sudo python2.7 get-pip.py
-  - pip install awscli
+  - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+  - unzip awscli-bundle.zip
+  - ./awscli-bundle/install -b ~/bin/aws
+  - export PATH=~/bin:$PATH
 script:
   - aws s3 sync www s3://learning-static-hosting --delete
