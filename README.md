@@ -8,6 +8,10 @@ This repo is used to learn how to deploy a static page to AWS.
 
 ### Setup AWS
 
+Our site will be hosted on S3 and served via CloudFront CDN.
+
+#### Hosting on S3
+
 1. Go to [S3](https://console.aws.amazon.com/s3/home) in your AWS account.
 2. Create a new bucket on S3
 3. By default your bucket is private and no one can access it so we have to configure it to make it publicly available:
@@ -33,6 +37,15 @@ This repo is used to learn how to deploy a static page to AWS.
 }
 ``` 
 
+#### CloudFront as CDN
+
+1. Go to [CloudFront](https://console.aws.amazon.com/cloudfront/home) in your AWS account
+2. Create a new `Web` distribution
+3. Configure your distribution:
+    - Set your bucket as `Origin domain name`
+    - For cheaper pricing only use US, Canada and Europ as `Price Class`
+    - Click on `Create Distribution` to create your CloudFront CDN
+
 ### Setup Repo
 
 We will setup our repo in a way that all files which get hosted are placed in the [www](www) folder. For the sake of 
@@ -42,13 +55,14 @@ simplicity we place a static `index.html`, `error.html` and `sample.html` file i
 doesn't provide any path or file. The error page will be send when a 4XX error code occures. Both pages need to be
 set up on your bucket properties.
 
-
+TODO: Small React App with yarn as package manager
 
 ### Setup Travis
 
 You have to set your AWS Credentials to travis either by using the `.travis.yml` file
 with [encrypted values](https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml)
 or on the travis website (repository settings). The credentials variables are `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
- 
+
+TODO: Explain .yml file
  
 
