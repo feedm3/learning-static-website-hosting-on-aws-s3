@@ -47,9 +47,8 @@ set up on your bucket properties.
 ### Setup Travis
 
 You have to set your AWS Credentials to travis either by using the `.travis.yml` file
-with encrypted values or on the travis website (repository settings).
-
-`AWS_ACCESS_KEY_ID`
-
-`AWS_SECRET_ACCESS_KEY` 
+with [encrypted values](https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml)
+or on the travis website (repository settings). The credentials variables are `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+ 
+ 
 
