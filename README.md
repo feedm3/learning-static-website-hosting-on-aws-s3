@@ -59,6 +59,9 @@ If you put CloudFront in front of S3 you can save a lot of costs and increase yo
 5. In you distributions dashboard you can also see your distributions ID. You need this ID in your travis-ci 
 environment variables.
 
+Optional you can go back to your S3 bucket and disable `Static Website Hosting` that nobody except CloudFront can
+access your bucket.
+
 ### Setup Repo
 
 We will setup our repo in a way that all files which get hosted are placed in the [www](www) folder. For the sake of 
