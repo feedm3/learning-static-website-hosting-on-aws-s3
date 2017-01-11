@@ -9,7 +9,7 @@ This repo is used to learn how to deploy a static page to AWS.
 ### Setup AWS
 
 Our site will be hosted on S3 and served via CloudFront CDN. You will need external access to your AWS resources so
-it's best to setup a new IAM user with S3- and CloudFront-`FullAccess`.
+it's best to setup a __new IAM user with `AmazonS3FullAccess` and `CloudFrontFullAccess` policy only__.
 
 #### Hosting on S3
 
@@ -40,8 +40,9 @@ it's best to setup a new IAM user with S3- and CloudFront-`FullAccess`.
 
 #### CloudFront as CDN
 
-If you put CloudFront in front of S3 you can save a lot of costs and increase your sites response time. Take in mind
-that all changes you do on CloudFront take some minutes till they get applied.
+If you put CloudFront in front of S3 you can save a lot of costs and increase your sites response time. 
+
+> Take in mind that all changes you do on CloudFront take some minutes till they get applied.
 
 1. Go to [CloudFront](https://console.aws.amazon.com/cloudfront/home) in your AWS account
 2. Create a new `Web` distribution
@@ -52,9 +53,9 @@ that all changes you do on CloudFront take some minutes till they get applied.
     - For cheaper pricing only use US, Canada and Europe as `Price Class`
     - Click on `Create Distribution` to create your CloudFront CDN
 4. You are now on your distributions dashboard. Select your new distribution
-    - Go to `Eroor Pages` to set up some error pages for specific HTTP status codes
-    - Click `Create Custom Error Response` then select `404` as `HTTP Error Code` and click `Yes` on
-    `Customize Error Response`. Set `/error.html` as `Response Page Path and `404` as `HTTP Response Code`
+    - Go to `Error Pages` to set up some error pages for specific HTTP status codes
+        - Click `Create Custom Error Response` then select `404` as `HTTP Error Code` and click `Yes` on
+        `Customize Error Response`. Set `/error.html` as `Response Page Path and `404` as `HTTP Response Code`
 5. In you distributions dashboard you can also see your distributions ID. You need this ID in your travis-ci 
 environment variables.
 
@@ -63,15 +64,17 @@ environment variables.
 We will setup our repo in a way that all files which get hosted are placed in the [www](www) folder. For the sake of 
 simplicity we place a static `index.html`, `error.html` and `sample.html` file in this folder.
 
-2 files are special: The index and error page. The index page will be send when the user uses your bucket URL and
-doesn't provide any path or file. The error page will be send when a 4XX error code occurs. Both pages need to be
+2 files are special: The index and error page. The index page will be send when the user uses your bucket or CloudFront
+URL and doesn't provide any path or file. The error page will be send when a 4XX error code occurs. Both pages need to be
 set up on your bucket properties.
+
+> To give your user better feedback you should setup extra error pages for specific error codes.
 
 Also place a `.travis.yml` file for travis.ci. We will fill in this file in the next paragraph.
 
 ### Setup Travis
 
-### travis.yml
+#### travis.yml
 
 Explanation of whats happening:
 
@@ -82,7 +85,7 @@ feature and then invalidate all files.
 
 The `script` block can also be used to build your project if you have a javascript app or something else.
 
-### travis.ci settings
+#### travis.ci settings
 
 Add the following environment variables on travis.ci or as 
 [encrypted values](https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml):
