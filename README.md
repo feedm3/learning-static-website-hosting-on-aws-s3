@@ -42,10 +42,17 @@ Our site will be hosted on S3 and served via CloudFront CDN.
 1. Go to [CloudFront](https://console.aws.amazon.com/cloudfront/home) in your AWS account
 2. Create a new `Web` distribution
 3. Configure your distribution:
-    - Set your bucket as `Origin domain name`
-    - For cheaper pricing only use US, Canada and Europ as `Price Class`
+    - Set your bucket as `Origin domain name`. This will link CloudFront and S3
+    - Set the `index.html` file as `Default Root Object`. This will allow the user to access your domain without any path
+    and still get the index file.
+    - For cheaper pricing only use US, Canada and Europe as `Price Class`
     - Click on `Create Distribution` to create your CloudFront CDN
-4. In you CloudFront Dashboard you can now 
+4. You are now on your distributions dashboard. Select your new distribution
+    - Go to `Eroor Pages` to set up some error pages for specific HTTP status codes
+    - Click `Create Custom Error Response` then select `404` as `HTTP Error Code` and click `Yes` on
+    `Customize Error Response`. Set `/error.html` as `Response Page Path and `404` as `HTTP Response Code`
+5. In you distributions dashboard you can also see your distributions ID. You need this ID in your travis-ci 
+environment variables.
 
 ### Setup Repo
 
@@ -53,17 +60,32 @@ We will setup our repo in a way that all files which get hosted are placed in th
 simplicity we place a static `index.html`, `error.html` and `sample.html` file in this folder.
 
 2 files are special: The index and error page. The index page will be send when the user uses your bucket URL and
-doesn't provide any path or file. The error page will be send when a 4XX error code occures. Both pages need to be
+doesn't provide any path or file. The error page will be send when a 4XX error code occurs. Both pages need to be
 set up on your bucket properties.
 
-TODO: Small React App with yarn as package manager
+Also place a `.travis.yml` file for travis.ci. We will fill in this file in the next paragraph.
 
 ### Setup Travis
 
-You have to set your AWS Credentials to travis either by using the `.travis.yml` file
-with [encrypted values](https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml)
-or on the travis website (repository settings). The credentials variables are `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+### travis.yml
 
-TODO: Explain .yml file
- 
+Explanation of whats happening:
+
+- `install`: The install block will download the `aws-cli` and add it to the `PATH` variable
+- `script`: In the script block, we will use the `aws-cli` to first sync all files with S3. The sync command has also
+the `--delete` tag to first delete all files on S3 and then upload the new ones. Next we will enable the cloudfront
+feature and then invalidate all files. 
+
+The `script` block can also be used to build your project if you have a javascript app or something else.
+
+### travis.ci settings
+
+Add the following environment variables on travis.ci or as 
+[encrypted values](https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml):
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `CLOUDFRONT_DISTRIBUTION_ID`
+
+  
 
