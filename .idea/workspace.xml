@@ -26,8 +26,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="508">
-                <caret line="78" column="105" lean-forward="false" selection-start-line="78" selection-start-column="105" selection-end-line="78" selection-end-column="105" />
+              <first_editor relative-caret-position="406">
+                <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -536,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484164184919</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add description on how to setup travis ci">
+      <created>1484165653316</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1484165653316</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -613,7 +620,8 @@
     <MESSAGE value="Dont use sudo to speed up the builds" />
     <MESSAGE value="Add cloudfront description" />
     <MESSAGE value="Add cloudfront notes and add cloudfront to deployment script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add cloudfront notes and add cloudfront to deployment script" />
+    <MESSAGE value="Add description on how to setup travis ci" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add description on how to setup travis ci" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -710,8 +718,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="508">
-            <caret line="78" column="105" lean-forward="false" selection-start-line="78" selection-start-column="105" selection-end-line="78" selection-end-column="105" />
+          <first_editor relative-caret-position="406">
+            <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

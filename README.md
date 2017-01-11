@@ -8,7 +8,8 @@ This repo is used to learn how to deploy a static page to AWS.
 
 ### Setup AWS
 
-Our site will be hosted on S3 and served via CloudFront CDN.
+Our site will be hosted on S3 and served via CloudFront CDN. You will need external access to your AWS resources so
+it's best to setup a new IAM user with S3- and CloudFront-`FullAccess`.
 
 #### Hosting on S3
 
@@ -38,6 +39,9 @@ Our site will be hosted on S3 and served via CloudFront CDN.
 ``` 
 
 #### CloudFront as CDN
+
+If you put CloudFront in front of S3 you can save a lot of costs and increase your sites response time. Take in mind
+that all changes you do on CloudFront take some minutes till they get applied.
 
 1. Go to [CloudFront](https://console.aws.amazon.com/cloudfront/home) in your AWS account
 2. Create a new `Web` distribution
@@ -73,7 +77,7 @@ Explanation of whats happening:
 
 - `install`: The install block will download the `aws-cli` and add it to the `PATH` variable
 - `script`: In the script block, we will use the `aws-cli` to first sync all files with S3. The sync command has also
-the `--delete` tag to first delete all files on S3 and then upload the new ones. Next we will enable the cloudfront
+the `--delete` tag to first delete all files on S3 and then upload the new ones. Next we will enable the CloudFront
 feature and then invalidate all files. 
 
 The `script` block can also be used to build your project if you have a javascript app or something else.
