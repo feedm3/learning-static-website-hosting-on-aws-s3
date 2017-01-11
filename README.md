@@ -45,6 +45,7 @@ Our site will be hosted on S3 and served via CloudFront CDN.
     - Set your bucket as `Origin domain name`
     - For cheaper pricing only use US, Canada and Europ as `Price Class`
     - Click on `Create Distribution` to create your CloudFront CDN
+4. In you CloudFront Dashboard you can now 
 
 ### Setup Repo
 

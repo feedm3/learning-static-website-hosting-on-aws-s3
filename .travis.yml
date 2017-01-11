@@ -13,3 +13,5 @@ install:
   - export PATH=~/bin:$PATH
 script:
   - aws s3 sync www s3://learning-static-hosting --delete
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
