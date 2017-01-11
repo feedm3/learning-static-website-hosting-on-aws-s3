@@ -61,7 +61,7 @@ environment variables.
 
 Optional you can go back to your S3 bucket and disable `Static Website Hosting` because CloudFront will do this work.
 You should also restrict direct access to your S3 bucket because users should only access your bucket through 
-CloudFront to prevent high costs or low latency. Detailed info can be found [here](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)
+CloudFront to prevent high costs. Detailed info can be found in the [aws docs](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)
 
 ### Setup Repo
 
@@ -101,5 +101,5 @@ Add the following environment variables on travis.ci or as
 ## Further information's
 
 - Blog article on how to setup S3 on AWS: https://renzo.lucioni.xyz/s3-deployment-with-travis/
-- AWS Tutorial - Restrict access to S3 Content: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+- AWS Docs - Restrict access to S3 Content: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 - StackOverflow - Restrict access to S3: http://stackoverflow.com/questions/22668121/creating-an-s3-bucket-policy-that-allows-access-to-cloudfront-but-restricts-acce
