@@ -91,5 +91,6 @@ Add the following environment variables on travis.ci or as
 - `AWS_SECRET_ACCESS_KEY`
 - `CLOUDFRONT_DISTRIBUTION_ID`
 
-  
+## Further information's
 
+- Blog article on how to setup S3 on AWS: https://renzo.lucioni.xyz/s3-deployment-with-travis/
